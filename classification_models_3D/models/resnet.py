@@ -264,7 +264,7 @@ def ResNet(
     # resnet bottom
     x = layers.BatchNormalization(name='bn_data', **no_scale_bn_params)(img_input)
     x = layers.ZeroPadding3D(padding=(3, 3, 3))(x)
-    x = layers.Conv3D(init_filters, (7, 7, 7), strides=(4, 4, 2), name='conv0', **conv_params)(x)
+    x = layers.Conv3D(init_filters, (7, 7, 7), strides=(2, 4, 4), name='conv0', **conv_params)(x)
     x = layers.BatchNormalization(name='bn0', **bn_params)(x)
     x = layers.Activation('relu', name='relu0')(x)
     x = layers.ZeroPadding3D(padding=(1, 1, 1))(x)
